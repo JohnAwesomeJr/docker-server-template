@@ -1,0 +1,42 @@
+version: "2"
+services:
+    reacttut_client:
+        build: .
+        # ports: 
+        #     - "89:80"
+        volumes:
+            - ./client:/var/www/html/
+        networks:
+            - proxy_my-network
+    reacttut_server:
+        build: .
+        # ports: 
+        #     - "89:80"
+        volumes:
+            - ./server:/var/www/html/
+        links:
+            - reacttut_db
+        networks:
+            - proxy_my-network
+    reacttut_db:
+        build:
+            context: .
+            dockerfile: Dockerfile-mysql
+        ports: 
+            - "33067:3306"
+        environment:
+            MYSQL_DATABASE: myDb
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test
+        volumes:
+            - ./dump:/host-machine
+            - ./persistent:/var/lib/mysql
+        networks:
+            - proxy_my-network
+networks:
+  proxy_my-network:
+    external: true
+volumes:
+    persistent:
+
