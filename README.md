@@ -3,7 +3,8 @@
 1. This repo uses nginx proxy manager by default.
 1. it is recommended to run a docker proxy server in addition to this repo.
 1. the proxy repo is located [here](https://github.com/JohnAwesomeJr/proxy-server)
-1. run with docker `docker-compose up -d`
+1. start proxy server docker repo `docker-compose up -d`
+1. run this docker repo `docker-compose up -d`
 1. find out mysql container id `docker ps`
 1. find out what the name of the client docker ip is (it is usually something like "docker-server-template_client_1")
 1. add a new host in the proxy manager
