@@ -16,3 +16,5 @@
 1. enter into the mysql docker container `docker exec -it <CONTAINER ID> bash`
 1. migrate the database `mysql -u root -ptest mydb < /host-machine/schema_dump.sql`
 1. exit out of of the container `exit`
+
+1. if you are in development and want to create a migration just log back into the database container using the steps above and run this cammand. ```mysqldump -u root -ptest mydb > /host-machine/schema_dump.sql```
