@@ -18,3 +18,4 @@
 1. exit out of of the container `exit`
 
 1. if you are in development and want to create a migration just log back into the database container using the steps above and run this cammand. ```mysqldump -u root -ptest mydb > /host-machine/schema_dump.sql```
+   1. you can also do the same thing with no data in the tables like this ```mysqldump -u root ptest --no-data mydb > /host-machine/schema_dump.sql```
