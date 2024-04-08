@@ -13,9 +13,6 @@ RUN docker-php-ext-install intl
 
 # imagemagick not working in php 8.3 yet. if you need 8.3 comment this out
 RUN apt-get update \
-    # Install libmagickwand-dev imagick package
     && apt-get install -y libmagickwand-dev \
-    # use pecl to install imagick
     && pecl install imagick \
-    # Enable you installed extension
     && docker-php-ext-enable imagick
